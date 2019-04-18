@@ -196,7 +196,7 @@ class BiST{
 				}
 			}
 			else{
-				if(current == NULL){
+				if(child == NULL){
 					child->parent->right = NULL;
 				}
 				else{
