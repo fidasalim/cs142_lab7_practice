@@ -107,7 +107,7 @@ class BinaryHeap(){
 	}
 	//**************************************************************************
 	void deleteAt(int i){
-		decreaseKey( i,hArr[cSize-1]);
+		decreaseKey( i,hArr[getMin()]);
 		ExtractMin(i);
 	}
 	//**************************************************************************
