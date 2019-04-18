@@ -78,7 +78,7 @@ class BinaryHeap(){
 	
 	
 	//**************************************************************************
-	void ExtraxtMin(int index){
+	int ExtraxtMin(int index){
 		if(cSize == 0){
 			cout<<"No sufficient elements"<<endl;
 		}
@@ -91,10 +91,26 @@ class BinaryHeap(){
 			return hArr[index];
 		}
 	}
+	int ExtractMin(){
+		return ExtractMin(0);
+	}
 	//**************************************************************************
-	
-	
+	void decreaseKey(int i,int new_value){
+		if(i<cSize){
+			hArr[i] = new_value;
+			while(i!=0 && hArr[parent(i)]>hArr[i]){
+				swap(&hArr[parent(i)],&hArr[i]);
+				i = parent(i);
+			}
+		}
+		else cout<<"Not possible";
+	}
 	//**************************************************************************
+	void deleteAt(int i){
+		decreaseKey( i,hArr[cSize-1]);
+		ExtractMin(i);
+	}
+	//**************************************************************************
+
 	
 };
-
