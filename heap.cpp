@@ -88,6 +88,7 @@ class BinaryHeap{
 		}
 		else{
 			swap(&hArr[i],&hArr[cSize-1]);
+			cSize--;
 			MinHeapify(i);
 			return hArr[i];
 		}
