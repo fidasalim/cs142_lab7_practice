@@ -1,7 +1,8 @@
 #include<iostream>
 using namespace std;
 //class for heap
-class BinaryHeap(){
+class BinaryHeap{
+    public:
 	//pointer to the array
 	int *hArr;
 	//maximum size
@@ -12,7 +13,7 @@ class BinaryHeap(){
 	//**************************************************************************
 	
 	//constructer
-	Binaryheap(int mSize){
+	BinaryHeap(int mSize){
 		hArr = new int[mSize];
 		this->mSize = mSize;
 		cSize = 0;
@@ -62,7 +63,7 @@ class BinaryHeap(){
 	void MinHeapify(int i){
 		int smallest;
 		if(left(i),right(i)<cSize){
-			if(hArr[left(i)]<hArr(i)){
+			if(hArr[left(i)]<hArr[i]){
 				smallest = left(i);
 			}
 			if(hArr[right(i)]<hArr[smallest]){
@@ -78,7 +79,7 @@ class BinaryHeap(){
 	
 	
 	//**************************************************************************
-	int ExtraxtMin(int index){
+	int ExtractMin(int i){
 		if(cSize == 0){
 			cout<<"No sufficient elements"<<endl;
 		}
@@ -88,7 +89,7 @@ class BinaryHeap(){
 		else{
 			swap(&hArr[i],&hArr[cSize-1]);
 			MinHeapify(i);
-			return hArr[index];
+			return hArr[i];
 		}
 	}
 	int ExtractMin(){
@@ -107,10 +108,19 @@ class BinaryHeap(){
 	}
 	//**************************************************************************
 	void deleteAt(int i){
-		decreaseKey( i,hArr[getMin()]);
+		decreaseKey( i,hArr[get_min()]);
 		ExtractMin(i);
 	}
 	//**************************************************************************
 
 	
 };
+int main(){
+    BinaryHeap bh1(20);
+    int n;
+    for(int i = 10; i >0 ; i--){
+        cout << "Inserting "<<i<<endl; //cin>>n;
+        bh1.insert(i);
+        bh1.display();
+    }
+}
